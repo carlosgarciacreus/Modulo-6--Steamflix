@@ -45,3 +45,6 @@ build/
 
 ### Scala ###
 .bsp/
+
+src/main/resources/server_logs.txt
+target/
