@@ -1,6 +1,6 @@
 package processor
 
-import org.apache.log4j.Logger
+import org.apache.log4j.{LogManager, Logger}
 import org.apache.spark.sql.functions.{broadcast, col, count, explode, lag, regexp_replace, split, sum, to_timestamp, when, year}
 import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
 import config.Constants
@@ -8,7 +8,7 @@ import org.apache.spark.sql.expressions.Window
 import org.apache.spark.sql.types.LongType
 
 object ETLProcessor {
-  val logger: Logger = Logger.getLogger(getClass.getName)
+  val logger = LogManager.getLogger(getClass)
 
   def run(rawLogsPath: String, moviesPath: String, outputPath: String)(implicit spark: SparkSession): Unit = {
     // 1. Leer logs y movies
